@@ -1,8 +1,11 @@
 import express from "express";
+import { connectDB } from "./config/db.js";
 import { products } from "./data/products.js";
 
 const PORT = process.env.PORT;
 const app = express();
+
+connectDB();
 
 app.get("/", (req, res) => {
   res.send("API is running...");
