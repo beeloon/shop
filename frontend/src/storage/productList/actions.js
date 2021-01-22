@@ -25,6 +25,3 @@ export const listProducts = () => async (dispatch) => {
     });
   }
 };
-
-// export const PRODUCT_LIST_SUCCESS = () => {};
-// export const PRODUCT_LIST_FAIL = () => {};

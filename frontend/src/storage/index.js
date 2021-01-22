@@ -4,12 +4,18 @@ import thunk from "redux-thunk";
 
 import { productList } from "./productList/reducer";
 import { productDetails } from "./productDetails/reducer";
+import { cart } from "./cart/reducer";
 
-const reducer = combineReducers({ productList, productDetails });
+const reducer = combineReducers({ productList, productDetails, cart });
 
 const middleware = [thunk];
 
-const initState = {};
+const cartItemsFromStorage = localStorage.getItem("cartItems")
+  ? JSON.parse(localStorage.getItem("cartItems"))
+  : [];
+const initState = {
+  cart: { cartItems: cartItemsFromStorage },
+};
 
 export const store = createStore(
   reducer,
