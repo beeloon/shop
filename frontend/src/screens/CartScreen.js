@@ -11,7 +11,7 @@ import {
   Button,
 } from "react-bootstrap";
 
-import { addToCart } from "../storage/cart/actions";
+import { addToCart, removeFromCart } from "../storage/cart/actions";
 
 import { Message } from "../components/Message";
 import { QuantityForm } from "../components/QuantityForm";
@@ -34,6 +34,7 @@ export const CartScreen = ({ match, location, history }) => {
   );
 
   const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
     console.log("remove");
   };
 
