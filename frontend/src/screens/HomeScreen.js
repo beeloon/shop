@@ -5,6 +5,7 @@ import { Row, Col } from "react-bootstrap";
 import { listProducts } from "../storage/productList/actions";
 
 import { Product } from "../components/Product";
+import { Loader } from "../components/Loader";
 
 export const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export const HomeScreen = () => {
 
   let render;
 
-  if (loading) render = <h1>Loading...</h1>;
+  if (loading) render = <Loader />;
   else if (error) render = <h1>{error}</h1>;
   else
     render = (
