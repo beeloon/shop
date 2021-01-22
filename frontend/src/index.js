@@ -6,7 +6,6 @@ import { store } from "./storage";
 
 import App from "./App";
 
-import "./assets/bootstrap.min.css";
 import "./index.css";
 
 ReactDOM.render(
