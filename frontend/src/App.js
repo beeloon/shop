@@ -6,6 +6,7 @@ import { Footer } from "./components/Footer";
 
 import { Home } from "./screens/Home";
 import { Cart } from "./screens/Cart";
+import { Login } from "./screens/Login";
 import { Product } from "./screens/Product";
 
 const App = () => (
@@ -14,8 +15,9 @@ const App = () => (
     <main className="py-3">
       <Container>
         <Route path="/" component={Home} exact />
-        <Route path="/product/:id" component={Product} />
+        <Route path="/login" component={Login} />
         <Route path="/cart/:id?" component={Cart} />
+        <Route path="/product/:id" component={Product} />
       </Container>
     </main>
     <Footer />
