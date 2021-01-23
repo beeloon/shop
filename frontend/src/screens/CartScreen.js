@@ -1,15 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Form,
-  Card,
-  Button,
-} from "react-bootstrap";
+import { Row, Col, ListGroup, Image, Card, Button } from "react-bootstrap";
 
 import { addToCart, removeFromCart } from "../storage/cart/actions";
 
@@ -25,7 +17,7 @@ export const CartScreen = ({ match, location, history }) => {
 
   useEffect(() => {
     if (productId) dispatch(addToCart(productId, qty));
-  }, [dispatch]);
+  }, [dispatch, productId, qty]);
 
   const emptyCart = (
     <Message>
