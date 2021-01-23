@@ -8,7 +8,7 @@ import { addToCart, removeFromCart } from "../storage/cart/actions";
 import { Message } from "../components/Message";
 import { QuantityForm } from "../components/QuantityForm";
 
-export const CartScreen = ({ match, location, history }) => {
+export const Cart = ({ match, location, history }) => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 

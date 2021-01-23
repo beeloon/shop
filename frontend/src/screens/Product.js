@@ -10,7 +10,7 @@ import { Loader } from "../components/Loader";
 import { Message } from "../components/Message";
 import { QuantityForm } from "../components/QuantityForm";
 
-export const ProductScreen = ({ history, match }) => {
+export const Product = ({ history, match }) => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
 

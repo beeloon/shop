@@ -8,7 +8,7 @@ import { Product } from "../components/Product";
 import { Message } from "../components/Message";
 import { Loader } from "../components/Loader";
 
-export const HomeScreen = () => {
+export const Home = () => {
   const dispatch = useDispatch();
   const { loading, error, products } = useSelector(
     (state) => state.productList
