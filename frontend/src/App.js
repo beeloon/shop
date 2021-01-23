@@ -9,6 +9,7 @@ import { Cart } from "./screens/Cart";
 import { Login } from "./screens/Login";
 import { Register } from "./screens/Register";
 import { Product } from "./screens/Product";
+import { Profile } from "./screens/Profile";
 
 const App = () => (
   <BrowserRouter>
@@ -19,6 +20,7 @@ const App = () => (
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/cart/:id?" component={Cart} />
+        <Route path="/profile" component={Profile} />
         <Route path="/product/:id" component={Product} />
       </Container>
     </main>

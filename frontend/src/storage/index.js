@@ -5,6 +5,7 @@ import thunk from "redux-thunk";
 import { cart } from "./cart/reducer";
 import { userLogin } from "./user/reducer";
 import { userRegister } from "./userRegister/reducer";
+import { userDetails } from "./userDetails/reducer";
 import { productList } from "./productList/reducer";
 import { productDetails } from "./productDetails/reducer";
 
@@ -19,6 +20,7 @@ const userInfoFromStorage = localStorage.getItem("userInfo")
 const reducer = combineReducers({
   cart,
   userLogin,
+  userDetails,
   userRegister,
   productList,
   productDetails,

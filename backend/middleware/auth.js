@@ -7,11 +7,11 @@ import { throwError } from "../utils/throwError.js";
 
 export const protect = asyncHandler(async (req, res, next) => {
   let token;
-  const header = req.headers.authorization;
+  const { authorization } = req.headers;
 
-  if (header && header.startsWith("Bearer")) {
+  if (authorization && authorization.startsWith("Bearer")) {
     try {
-      token = header.split(" ")[1];
+      token = authorization.split(" ")[1];
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
