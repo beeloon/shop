@@ -3,6 +3,8 @@ import asyncHandler from "express-async-handler";
 
 import { User } from "../models/User.js";
 
+import { throwError } from "../utils/throwError.js";
+
 export const protect = asyncHandler(async (req, res, next) => {
   let token;
   const header = req.headers.authorization;
@@ -17,14 +19,9 @@ export const protect = asyncHandler(async (req, res, next) => {
 
       next();
     } catch (error) {
-      console.error(error);
-      res.status(401);
-      throw new Error("Not authorized, token failed");
+      throwError(res.status(401), "Not authorized, token failed");
     }
   }
 
-  if (!token) {
-    res.status(401);
-    throw new Error("Not authorized, no token");
-  }
+  if (!token) throwError(res.status(401), "Not authorized, no token");
 });
