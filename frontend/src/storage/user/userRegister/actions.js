@@ -5,7 +5,7 @@ import {
   USER_REGISTER_FAIL,
 } from "./constants";
 
-import { USER_LOGIN_SUCCESS } from "../user/constants";
+import { USER_LOGIN_SUCCESS } from "../userLogin/constants";
 
 export const register = (name, email, password) => async (dispatch) => {
   try {

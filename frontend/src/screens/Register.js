@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
-import { register } from "../storage/userRegister/actions";
+import { register } from "../storage/user/userRegister/actions";
 
 import { Loader } from "../components/Loader";
 import { Message } from "../components/Message";

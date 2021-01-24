@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 
-import { listProductDetails } from "../storage/productDetails/actions";
+import { listProductDetails } from "../storage/product/productDetails/actions";
 
 import { Rating } from "../components/Rating";
 import { Loader } from "../components/Loader";

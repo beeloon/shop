@@ -12,7 +12,7 @@ import { Product } from "./screens/Product";
 import { Profile } from "./screens/Profile";
 import { Shipping } from "./screens/Shipping";
 
-const App = () => (
+export const App = () => (
   <BrowserRouter>
     <Header />
     <main className="py-3">
@@ -29,5 +29,3 @@ const App = () => (
     <Footer />
   </BrowserRouter>
 );
-
-export default App;

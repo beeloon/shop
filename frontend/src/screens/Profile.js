@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
-import { getUserDetails } from "../storage/userDetails/actions";
-import { updateUserProfile } from "../storage/userUpdate/actions";
+import { getUserDetails } from "../storage/user/userDetails/actions";
+import { updateUserProfile } from "../storage/user/userUpdate/actions";
 
 import { Loader } from "../components/Loader";
 import { Message } from "../components/Message";
@@ -17,7 +17,7 @@ export const Profile = ({ history }) => {
 
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.userLogin);
-  const { success } = useSelector((state) => state.userUpdateProfile);
+  const { success } = useSelector((state) => state.userUpdate);
   const { loading, error, user } = useSelector((state) => state.userDetails);
 
   useEffect(() => {

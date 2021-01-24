@@ -21,13 +21,12 @@ export const Cart = ({ match, location, history }) => {
 
   const emptyCart = (
     <Message>
-      Yout cart is empty<Link to="/">Go Back</Link>
+      Your cart is empty <Link to="/">Go Back</Link>
     </Message>
   );
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
-    console.log("remove");
   };
 
   const checkoutHandler = () => {
