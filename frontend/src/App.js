@@ -5,12 +5,13 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
 import { Home } from "./screens/Home";
-import { Cart } from "./screens/Cart";
 import { Login } from "./screens/Login";
+import { Profile } from "./screens/Profile";
 import { Register } from "./screens/Register";
 import { Product } from "./screens/Product";
-import { Profile } from "./screens/Profile";
+import { Cart } from "./screens/Cart";
 import { Shipping } from "./screens/Shipping";
+import { Payment } from "./screens/Payment";
 
 export const App = () => (
   <BrowserRouter>
@@ -22,6 +23,7 @@ export const App = () => (
         <Route path="/register" component={Register} />
         <Route path="/cart/:id?" component={Cart} />
         <Route path="/shipping" component={Shipping} />
+        <Route path="/payment" component={Payment} />
         <Route path="/profile" component={Profile} />
         <Route path="/product/:id" component={Product} />
       </Container>
