@@ -3,8 +3,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 import { cart } from "./cart/reducer";
-import { orderCreate } from "./order/orderCreate/reducer";
 import { productList, productDetails } from "./product";
+import { orderCreate, orderDetails } from "./order/orderCreate/reducer";
 import { userLogin, userRegister, userUpdate, userDetails } from "./user";
 
 const cartItemsFromStorage = localStorage.getItem("cartItems")
@@ -21,13 +21,14 @@ const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
 
 const reducer = combineReducers({
   cart,
-  orderCreate,
   userLogin,
   userUpdate,
   userDetails,
   userRegister,
   productList,
   productDetails,
+  orderCreate,
+  orderDetails,
 });
 
 const initState = {
