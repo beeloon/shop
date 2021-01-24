@@ -5,8 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUserDetails } from "../storage/user/userDetails/actions";
 import { updateUserProfile } from "../storage/user/userUpdate/actions";
 
+import { listUserOrders } from "../storage/order/orderUserList/actions";
+
 import { Loader } from "../components/Loader";
 import { Message } from "../components/Message";
+import { UserOrdersTable } from "../components/UserOrdersTable";
 
 export const Profile = ({ history }) => {
   const [name, setName] = useState("");
@@ -19,12 +22,17 @@ export const Profile = ({ history }) => {
   const { userInfo } = useSelector((state) => state.userLogin);
   const { success } = useSelector((state) => state.userUpdate);
   const { loading, error, user } = useSelector((state) => state.userDetails);
+  const { loading: loadingOrders, error: errorOrders, orders } = useSelector(
+    (state) => state.orderUserList
+  );
 
   useEffect(() => {
     if (!userInfo) history.push("/login");
     else {
-      if (!user.name) dispatch(getUserDetails("profile"));
-      else {
+      if (!user.name) {
+        dispatch(getUserDetails("profile"));
+        dispatch(listUserOrders());
+      } else {
         setName(user.name);
         setEmail(user.email);
       }
@@ -97,6 +105,13 @@ export const Profile = ({ history }) => {
       </Col>
       <Col md={9}>
         <h2>My Orders</h2>
+        {loadingOrders ? (
+          <Loader />
+        ) : errorOrders ? (
+          <Message variant="danger">{errorOrders}</Message>
+        ) : (
+          <UserOrdersTable orders={orders} />
+        )}
       </Col>
     </Row>
   );
