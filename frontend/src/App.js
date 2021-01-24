@@ -10,6 +10,7 @@ import { Login } from "./screens/Login";
 import { Register } from "./screens/Register";
 import { Product } from "./screens/Product";
 import { Profile } from "./screens/Profile";
+import { Shipping } from "./screens/Shipping";
 
 const App = () => (
   <BrowserRouter>
@@ -20,6 +21,7 @@ const App = () => (
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/cart/:id?" component={Cart} />
+        <Route path="/shipping" component={Shipping} />
         <Route path="/profile" component={Profile} />
         <Route path="/product/:id" component={Product} />
       </Container>
