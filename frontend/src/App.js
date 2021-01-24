@@ -12,6 +12,7 @@ import { Product } from "./screens/Product";
 import { Cart } from "./screens/Cart";
 import { Shipping } from "./screens/Shipping";
 import { Payment } from "./screens/Payment";
+import { PlaceOrder } from "./screens/PlaceOrder";
 
 export const App = () => (
   <BrowserRouter>
@@ -24,6 +25,7 @@ export const App = () => (
         <Route path="/cart/:id?" component={Cart} />
         <Route path="/shipping" component={Shipping} />
         <Route path="/payment" component={Payment} />
+        <Route path="/placeorder" component={PlaceOrder} />
         <Route path="/profile" component={Profile} />
         <Route path="/product/:id" component={Product} />
       </Container>
