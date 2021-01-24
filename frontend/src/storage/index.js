@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 
 import { cart } from "./cart/reducer";
 import { productList, productDetails } from "./product";
-import { orderCreate, orderDetails } from "./order/orderCreate/reducer";
+import { orderCreate, orderDetails } from "./order";
 import { userLogin, userRegister, userUpdate, userDetails } from "./user";
 
 const cartItemsFromStorage = localStorage.getItem("cartItems")

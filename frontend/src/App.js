@@ -12,6 +12,7 @@ import { Product } from "./screens/Product";
 import { Cart } from "./screens/Cart";
 import { Shipping } from "./screens/Shipping";
 import { Payment } from "./screens/Payment";
+import { Order } from "./screens/Order";
 import { PlaceOrder } from "./screens/PlaceOrder";
 
 export const App = () => (
@@ -26,6 +27,7 @@ export const App = () => (
         <Route path="/shipping" component={Shipping} />
         <Route path="/payment" component={Payment} />
         <Route path="/placeorder" component={PlaceOrder} />
+        <Route path="/order/:id" component={Order} />
         <Route path="/profile" component={Profile} />
         <Route path="/product/:id" component={Product} />
       </Container>
