@@ -10,9 +10,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
   try {
     dispatch({ type: USER_UPDATE_PROFILE_REQUEST });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userInfo } = getState().userLogin;
 
     const config = {
       headers: {

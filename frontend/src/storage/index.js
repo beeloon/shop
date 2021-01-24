@@ -3,6 +3,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 import { cart } from "./cart/reducer";
+import { orderCreate } from "./order/orderCreate/reducer";
 import { productList, productDetails } from "./product";
 import { userLogin, userRegister, userUpdate, userDetails } from "./user";
 
@@ -20,6 +21,7 @@ const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
 
 const reducer = combineReducers({
   cart,
+  orderCreate,
   userLogin,
   userUpdate,
   userDetails,

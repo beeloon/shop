@@ -1,13 +1,13 @@
 import axios from "axios";
 import {
-  USER_DETAILS_REQUEST,
-  USER_DETAILS_SUCCESS,
-  USER_DETAILS_FAIL,
+  ORDER_CREATE_REQUEST,
+  ORDER_CREATE_SUCCESS,
+  ORDER_CREATE_FAIL,
 } from "./constants";
 
-export const getUserDetails = (id) => async (dispatch, getState) => {
+export const createOrder = (order) => async (dispatch, getState) => {
   try {
-    dispatch({ type: USER_DETAILS_REQUEST });
+    dispatch({ type: ORDER_CREATE_REQUEST });
 
     const { userInfo } = getState().userLogin;
 
@@ -17,15 +17,15 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/api/users/${id}`, config);
+    const { data } = await axios.post("/api/orders", order, config);
 
     dispatch({
-      type: USER_DETAILS_SUCCESS,
+      type: ORDER_CREATE_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: USER_DETAILS_FAIL,
+      type: ORDER_CREATE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
