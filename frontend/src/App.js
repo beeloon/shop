@@ -14,6 +14,7 @@ import { Shipping } from "./screens/Shipping";
 import { Payment } from "./screens/Payment";
 import { Order } from "./screens/Order";
 import { PlaceOrder } from "./screens/PlaceOrder";
+import { UserList } from "./screens/UserList";
 
 export const App = () => (
   <BrowserRouter>
@@ -30,6 +31,7 @@ export const App = () => (
         <Route path="/order/:id" component={Order} />
         <Route path="/profile" component={Profile} />
         <Route path="/product/:id" component={Product} />
+        <Route path="/admin/userlist" component={UserList} />
       </Container>
     </main>
     <Footer />
