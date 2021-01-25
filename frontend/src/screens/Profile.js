@@ -3,7 +3,7 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getUserDetails } from "../storage/user/userDetails/actions";
-import { updateUserProfile } from "../storage/user/userUpdate/actions";
+import { updateUserProfile } from "../storage/user/userUpdateProfile/actions";
 
 import { listUserOrders } from "../storage/order/orderUserList/actions";
 

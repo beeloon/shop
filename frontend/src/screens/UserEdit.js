@@ -4,6 +4,8 @@ import { Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getUserDetails } from "../storage/user/userDetails/actions";
+import { updateUser } from "../storage/user/userUpdate/actions";
+import { USER_UPDATE_RESET } from "../storage/user/userUpdate/constants";
 
 import { Loader } from "../components/Loader";
 import { Message } from "../components/Message";
@@ -17,19 +19,31 @@ export const UserEdit = ({ match, history }) => {
 
   const dispatch = useDispatch();
   const { loading, error, user } = useSelector((state) => state.userDetails);
+  const {
+    loading: loadingUpdate,
+    error: errorUpdate,
+    success: successUpdate,
+  } = useSelector((state) => state.userUpdate);
 
   useEffect(() => {
-    if (!user.name || user._id !== userId) {
-      dispatch(getUserDetails(userId));
+    if (successUpdate) {
+      dispatch({ type: USER_UPDATE_RESET });
+      history.push("/admin/userlist");
     } else {
-      setName(user.name);
-      setEmail(user.email);
-      setIsAdmin(user.isAdmin);
+      if (!user.name || user._id !== userId) {
+        dispatch(getUserDetails(userId));
+      } else {
+        setName(user.name);
+        setEmail(user.email);
+        setIsAdmin(user.isAdmin);
+      }
     }
-  }, [dispatch, user]);
+  }, [dispatch, user, userId, successUpdate, history]);
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    dispatch(updateUser({ _id: userId, name, email, isAdmin }));
   };
 
   return (
@@ -38,6 +52,8 @@ export const UserEdit = ({ match, history }) => {
         Go Back
       </Link>
       <FormContainer>
+        {loadingUpdate && <Loader />}
+        {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         <h1>Edit User</h1>
         {loading ? (
           <Loader />
