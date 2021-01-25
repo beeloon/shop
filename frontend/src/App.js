@@ -15,6 +15,7 @@ import { Payment } from "./screens/Payment";
 import { Order } from "./screens/Order";
 import { PlaceOrder } from "./screens/PlaceOrder";
 import { UserList } from "./screens/UserList";
+import { UserEdit } from "./screens/UserEdit";
 
 export const App = () => (
   <BrowserRouter>
@@ -32,6 +33,7 @@ export const App = () => (
         <Route path="/profile" component={Profile} />
         <Route path="/product/:id" component={Product} />
         <Route path="/admin/userlist" component={UserList} />
+        <Route path="/admin/user/:id/edit" component={UserEdit} />
       </Container>
     </main>
     <Footer />
