@@ -8,10 +8,11 @@ import { orderCreate, orderDetails, orderPay, orderUserList } from "./order";
 import {
   userList,
   userLogin,
-  userDelete,
   userUpdate,
+  userDelete,
   userDetails,
   userRegister,
+  userUpdateProfile,
 } from "./user";
 
 const cartItemsFromStorage = localStorage.getItem("cartItems")
@@ -28,18 +29,19 @@ const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
 
 const reducer = combineReducers({
   cart,
+  productList,
+  productDetails,
+  orderPay,
+  orderCreate,
+  orderDetails,
+  orderUserList,
   userList,
   userLogin,
   userDelete,
   userUpdate,
   userDetails,
   userRegister,
-  productList,
-  productDetails,
-  orderPay,
-  orderUserList,
-  orderCreate,
-  orderDetails,
+  userUpdateProfile,
 });
 
 const initState = {
