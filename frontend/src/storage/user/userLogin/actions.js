@@ -10,6 +10,7 @@ import { USER_LIST_RESET } from "../../user/userList/constants";
 import { USER_DETAILS_RESET } from "../userDetails/constants";
 import { USER_REGISTER_RESET } from "../../user/userRegister/constants";
 import { ORDER_USER_LIST_RESET } from "../../order/orderUserList/constants";
+import { ORDER_PAY_RESET } from "../../order/orderPay/constants";
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -39,6 +40,7 @@ export const logout = () => (dispatch) => {
   dispatch({ type: USER_LIST_RESET });
   dispatch({ type: USER_DETAILS_RESET });
   dispatch({ type: USER_REGISTER_RESET });
+  dispatch({ type: ORDER_PAY_RESET });
   dispatch({ type: ORDER_USER_LIST_RESET });
 
   localStorage.removeItem("userInfo");
