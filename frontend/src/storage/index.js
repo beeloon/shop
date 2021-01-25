@@ -8,6 +8,7 @@ import { orderCreate, orderDetails, orderPay, orderUserList } from "./order";
 import {
   userList,
   userLogin,
+  userDelete,
   userUpdate,
   userDetails,
   userRegister,
@@ -29,6 +30,7 @@ const reducer = combineReducers({
   cart,
   userList,
   userLogin,
+  userDelete,
   userUpdate,
   userDetails,
   userRegister,

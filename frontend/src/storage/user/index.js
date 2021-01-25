@@ -3,5 +3,13 @@ import { userLogin } from "./userLogin/reducer";
 import { userUpdate } from "./userUpdate/reducer";
 import { userDetails } from "./userDetails/reducer";
 import { userRegister } from "./userRegister/reducer";
+import { userDelete } from "./userDelete/reducer";
 
-export { userLogin, userUpdate, userDetails, userRegister, userList };
+export {
+  userList,
+  userLogin,
+  userDelete,
+  userUpdate,
+  userDetails,
+  userRegister,
+};

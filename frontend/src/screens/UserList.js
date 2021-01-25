@@ -4,6 +4,7 @@ import { Button, Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
 import { listUsers } from "../storage/user/userList/actions";
+import { deleteUser } from "../storage/user/userDelete/actions";
 
 import { Loader } from "../components/Loader";
 import { Message } from "../components/Message";
@@ -13,14 +14,17 @@ export const UserList = ({ history }) => {
 
   const { loading, error, users } = useSelector((state) => state.userList);
   const { userInfo } = useSelector((state) => state.userLogin);
+  const { success: successDelete } = useSelector((state) => state.userDelete);
 
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) dispatch(listUsers());
     else history.push("/login");
-  }, [dispatch, userInfo, history]);
+  }, [dispatch, userInfo, history, successDelete]);
 
   const deleteHandler = (id) => {
-    console.log(id);
+    if (window.confirm("Are you sure")) {
+      dispatch(deleteUser(id));
+    }
   };
 
   return (
