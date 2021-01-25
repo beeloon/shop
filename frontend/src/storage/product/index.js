@@ -2,5 +2,12 @@ import { productList } from "./productList/reducer";
 import { productDetails } from "./productDetails/reducer";
 import { productDelete } from "./productDelete/reducer";
 import { productCreate } from "./productCreate/reducer";
+import { productUpdate } from "./productUpdate/reducer";
 
-export { productList, productDetails, productDelete, productCreate };
+export {
+  productList,
+  productDetails,
+  productDelete,
+  productCreate,
+  productUpdate,
+};
