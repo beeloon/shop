@@ -1,6 +1,7 @@
 import path from "path";
 import express from "express";
 import colors from "colors";
+import morgan from "morgan";
 
 import { connectDB } from "./config/db.js";
 
@@ -11,10 +12,14 @@ import orderRoutes from "./routes/order.js";
 import uploadRoutes from "./routes/upload.js";
 import productRoutes from "./routes/product.js";
 
+connectDB();
+
 const PORT = process.env.PORT;
 const app = express();
 
-connectDB();
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
 
 app.use(express.json());
 
