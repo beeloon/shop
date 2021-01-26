@@ -10,7 +10,13 @@ import {
   productDelete,
   productUpdate,
 } from "./product";
-import { orderCreate, orderDetails, orderPay, orderUserList } from "./order";
+import {
+  orderCreate,
+  orderDetails,
+  orderPay,
+  orderList,
+  orderUserList,
+} from "./order";
 import {
   userList,
   userLogin,
@@ -43,6 +49,7 @@ const reducer = combineReducers({
   orderPay,
   orderCreate,
   orderDetails,
+  orderList,
   orderUserList,
   userList,
   userLogin,

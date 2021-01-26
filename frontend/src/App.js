@@ -13,6 +13,7 @@ import { Cart } from "./screens/Cart";
 import { Shipping } from "./screens/Shipping";
 import { Payment } from "./screens/Payment";
 import { Order } from "./screens/Order";
+import { OrderList } from "./screens/OrderList";
 import { PlaceOrder } from "./screens/PlaceOrder";
 import { UserList } from "./screens/UserList";
 import { UserEdit } from "./screens/UserEdit";
@@ -35,8 +36,9 @@ export const App = () => (
         <Route path="/profile" component={Profile} />
         <Route path="/product/:id" component={Product} />
         <Route path="/admin/userlist" component={UserList} />
-        <Route path="/admin/user/:id/edit" component={UserEdit} />
+        <Route path="/admin/orderlist" component={OrderList} />
         <Route path="/admin/productlist" component={ProductList} />
+        <Route path="/admin/user/:id/edit" component={UserEdit} />
         <Route path="/admin/product/:id/edit" component={ProductEdit} />
       </Container>
     </main>
