@@ -25,8 +25,6 @@ export const App = () => (
     <Header />
     <main className="py-3">
       <Container>
-        <Route path="/" component={Home} exact />
-        <Route path="/search/:keyword" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/cart/:id?" component={Cart} />
@@ -38,9 +36,23 @@ export const App = () => (
         <Route path="/product/:id" component={Product} />
         <Route path="/admin/userlist" component={UserList} />
         <Route path="/admin/orderlist" component={OrderList} />
-        <Route path="/admin/productlist" component={ProductList} />
         <Route path="/admin/user/:id/edit" component={UserEdit} />
         <Route path="/admin/product/:id/edit" component={ProductEdit} />
+        <Route
+          path={["/admin/productlist", "/admin/productlist/:pageNumber"]}
+          component={ProductList}
+          exact
+        />
+        <Route
+          path={[
+            "/",
+            "/search/:keyword",
+            "/search/:keyword/page/:pageNumber",
+            "/page/:pageNumber",
+          ]}
+          component={Home}
+          exact
+        />
       </Container>
     </main>
     <Footer />
