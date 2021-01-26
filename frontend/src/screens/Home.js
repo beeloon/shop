@@ -1,10 +1,12 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 
 import { listProducts } from "../storage/product/productList/actions";
 
 import { Product } from "../components/Product";
+import { Meta } from "../components/Meta";
 import { Message } from "../components/Message";
 import { Loader } from "../components/Loader";
 import { Paginate } from "../components/Paginate";
@@ -26,14 +28,21 @@ export const Home = ({ match }) => {
 
   return (
     <>
-      {!keyword && <ProductCarousel />}
-      <h1>latest products</h1>
+      <Meta />
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
+        <Link className="btn btn-light" to="/">
+          Go Back
+        </Link>
+      )}
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+          <h1>Latest products</h1>
           <Row>
             {products.map((product) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>

@@ -16,6 +16,7 @@ import { createReview } from "../storage/product/productReviewCreate/actions";
 import { PRODUCT_REVIEW_CREATE_RESET } from "../storage/product/productReviewCreate/constants";
 
 import { Rating } from "../components/Rating";
+import { Meta } from "../components/Meta";
 import { Loader } from "../components/Loader";
 import { Message } from "../components/Message";
 import { QuantityForm } from "../components/QuantityForm";
@@ -70,6 +71,7 @@ export const Product = ({ history, match }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
+      <Meta title={product.name} />
       <Link to="/" className="btn btn-light my-3">
         Go Back
       </Link>
