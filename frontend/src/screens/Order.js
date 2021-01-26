@@ -54,7 +54,7 @@ export const Order = ({ match, history }) => {
       if (!window.paypal) addPayPalScript();
       else setSdkReady(true);
     }
-  }, [dispatch, orderId, history, successPay, successDeliver, order]);
+  }, [dispatch, userInfo, orderId, history, successPay, successDeliver, order]);
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(orderId, paymentResult));

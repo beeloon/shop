@@ -9,6 +9,7 @@ import {
   productCreate,
   productDelete,
   productUpdate,
+  productReviewCreate,
 } from "./product";
 import {
   orderCreate,
@@ -47,6 +48,7 @@ const reducer = combineReducers({
   productDelete,
   productUpdate,
   productDetails,
+  productReviewCreate,
   orderPay,
   orderDeliver,
   orderCreate,

@@ -3,6 +3,7 @@ import { productDetails } from "./productDetails/reducer";
 import { productDelete } from "./productDelete/reducer";
 import { productCreate } from "./productCreate/reducer";
 import { productUpdate } from "./productUpdate/reducer";
+import { productReviewCreate } from "./productReviewCreate/reducer";
 
 export {
   productList,
@@ -10,4 +11,5 @@ export {
   productDelete,
   productCreate,
   productUpdate,
+  productReviewCreate,
 };
