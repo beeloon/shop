@@ -5,7 +5,7 @@ import { Product } from "../models/Product.js";
 import { throwError } from "../utils/throwError.js";
 
 // @desc    Fetch all products
-// @route   GET api/products
+// @route   GET /api/products
 // @access  Public
 export const getProducts = asyncHandler(async (req, res) => {
   const pageSize = 8;
@@ -24,7 +24,7 @@ export const getProducts = asyncHandler(async (req, res) => {
 });
 
 // @desc    Fetch single product
-// @route   GET api/products/:id
+// @route   GET /api/products/:id
 // @access  Public
 export const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
@@ -34,7 +34,7 @@ export const getProductById = asyncHandler(async (req, res) => {
 });
 
 // @desc    Delete product
-// @route   Delete api/products/:id
+// @route   Delete /api/products/:id
 // @access  Public/Admin
 export const deleteProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
@@ -46,7 +46,7 @@ export const deleteProduct = asyncHandler(async (req, res) => {
 });
 
 // @desc    Create a product
-// @route   POST api/products
+// @route   POST /api/products
 // @access  Public/Admin
 export const createProduct = asyncHandler(async (req, res) => {
   const product = new Product({
@@ -65,7 +65,7 @@ export const createProduct = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update a product
-// @route   PUT api/products/:id
+// @route   PUT /api/products/:id
 // @access  Privete/Admin
 export const updateProduct = asyncHandler(async (req, res) => {
   const {
@@ -99,7 +99,7 @@ export const updateProduct = asyncHandler(async (req, res) => {
 });
 
 // @desc    Create new review
-// @route   POST api/products/:id/reviews
+// @route   POST /api/products/:id/reviews
 // @access  Privete
 export const createProductReview = asyncHandler(async (req, res) => {
   const { rating, comment } = req.body;
@@ -135,4 +135,13 @@ export const createProductReview = asyncHandler(async (req, res) => {
   } else {
     throwError(res.send(404), "Product not found");
   }
+});
+
+// @desc    Get top rated products
+// @route   GET /api/products/top
+// @access  Public
+export const getTopProducts = asyncHandler(async (req, res) => {
+  const products = await Product.find({}).sort({ rating: -1 }).limit(3);
+
+  res.json(products);
 });
