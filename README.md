@@ -1,5 +1,5 @@
 # [Electrify eCommerce Platform](https://electrifyshopapp.herokuapp.com/)
-> There's eCommerce platform built with the MERN stack followed by [Brad Traversy](https://github.com/bradtraversy) course.
+> Simple eCommerce shop built with the MERN stack followed by [Brad Traversy](https://github.com/bradtraversy) course.
 
 ## Features
  - Full featured shopping cart
