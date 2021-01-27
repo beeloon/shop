@@ -1,4 +1,4 @@
-import asyncHandler from "express-async-handler";
+import { asyncHandler as ash } from "../middleware/async.js";
 
 import { Order } from "../models/Order.js";
 
@@ -7,7 +7,7 @@ import { throwError } from "../utils/throwError.js";
 // @desc    Create new order
 // @route   POST /api/orders
 // @access  Private
-export const addOrderItems = asyncHandler(async (req, res) => {
+export const addOrderItems = ash(async (req, res) => {
   const {
     orderItems,
     shippingAddress,
@@ -42,7 +42,7 @@ export const addOrderItems = asyncHandler(async (req, res) => {
 // @desc    Get order by id
 // @route   Get /api/orders/:id
 // @access  Private
-export const getOrderById = asyncHandler(async (req, res) => {
+export const getOrderById = ash(async (req, res) => {
   const order = await Order.findById(req.params.id).populate(
     "user",
     "name email"
@@ -55,7 +55,7 @@ export const getOrderById = asyncHandler(async (req, res) => {
 // @desc    Update order to paid
 // @route   PUT /api/orders/:id/pay
 // @access  Private
-export const updateOrderToPaid = asyncHandler(async (req, res) => {
+export const updateOrderToPaid = ash(async (req, res) => {
   const order = await Order.findById(req.params.id);
 
   if (order) {
@@ -77,7 +77,7 @@ export const updateOrderToPaid = asyncHandler(async (req, res) => {
 // @desc    Get logged in user orders
 // @route   GET /api/orders/myorders
 // @access  Private
-export const getUserOrders = asyncHandler(async (req, res) => {
+export const getUserOrders = ash(async (req, res) => {
   const orders = await Order.find({ user: req.user._id });
 
   res.json(orders);
@@ -86,7 +86,7 @@ export const getUserOrders = asyncHandler(async (req, res) => {
 // @desc    Get all orders
 // @route   GET /api/orders
 // @access  Private/Admin
-export const getOrders = asyncHandler(async (req, res) => {
+export const getOrders = ash(async (req, res) => {
   const orders = await Order.find({}).populate("user", "id name");
 
   res.json(orders);
@@ -95,7 +95,7 @@ export const getOrders = asyncHandler(async (req, res) => {
 // @desc    Update order to delivered
 // @route   PUT /api/orders/:id/deliver
 // @access  Private/Admin
-export const updateOrderToDelivered = asyncHandler(async (req, res) => {
+export const updateOrderToDelivered = ash(async (req, res) => {
   const order = await Order.findById(req.params.id);
 
   if (order) {

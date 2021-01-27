@@ -1,11 +1,12 @@
 import jwt from "jsonwebtoken";
-import asyncHandler from "express-async-handler";
+
+import { asyncHandler as ash } from "./async.js";
 
 import { User } from "../models/User.js";
 
 import { throwError } from "../utils/throwError.js";
 
-export const protect = asyncHandler(async (req, res, next) => {
+export const protect = ash(async (req, res, next) => {
   let token;
   const { authorization } = req.headers;
 

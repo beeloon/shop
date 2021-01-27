@@ -1,4 +1,4 @@
-import asyncHandler from "express-async-handler";
+import { asyncHandler as ash } from "../middleware/async.js";
 
 import { generateToken } from "../utils/generateToken.js";
 import { throwError } from "../utils/throwError.js";
@@ -8,7 +8,7 @@ import { User } from "../models/User.js";
 // @desc    Register a new user
 // @route   POST /api/users
 // @access  Public
-export const registerUser = asyncHandler(async (req, res) => {
+export const registerUser = ash(async (req, res) => {
   const { name, email, password } = req.body;
 
   const userExists = await User.findOne({ email });
@@ -31,7 +31,7 @@ export const registerUser = asyncHandler(async (req, res) => {
 // @desc    Auth user and get token
 // @route   POST /api/users/login
 // @access  Public
-export const authUser = asyncHandler(async (req, res) => {
+export const authUser = ash(async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
@@ -50,7 +50,7 @@ export const authUser = asyncHandler(async (req, res) => {
 // @desc    Get user profile
 // @route   GET /api/users/profile
 // @access  Private
-export const getUserProfile = asyncHandler(async (req, res) => {
+export const getUserProfile = ash(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
@@ -66,7 +66,7 @@ export const getUserProfile = asyncHandler(async (req, res) => {
 // @desc    Update user profile
 // @route   PUT /api/users/profile
 // @access  Private
-export const updateUserProfile = asyncHandler(async (req, res) => {
+export const updateUserProfile = ash(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
@@ -90,7 +90,7 @@ export const updateUserProfile = asyncHandler(async (req, res) => {
 // @desc    Get all users
 // @route   GET /api/users
 // @access  Private/Admin
-export const getUsers = asyncHandler(async (req, res) => {
+export const getUsers = ash(async (req, res) => {
   const users = await User.find({});
   res.json(users);
 });
@@ -98,7 +98,7 @@ export const getUsers = asyncHandler(async (req, res) => {
 // @desc    Delete user
 // @route   DELETE /api/users/:id
 // @access  Private/Admin
-export const deleteUser = asyncHandler(async (req, res) => {
+export const deleteUser = ash(async (req, res) => {
   const user = await User.findById(req.params.id);
 
   if (user) {
@@ -110,7 +110,7 @@ export const deleteUser = asyncHandler(async (req, res) => {
 // @desc    Get user by id
 // @route   GET /api/users:id
 // @access  Private/Admin
-export const getUserById = asyncHandler(async (req, res) => {
+export const getUserById = ash(async (req, res) => {
   const user = await User.findById(req.params.id).select("-password");
 
   if (user) res.json(user);
@@ -120,7 +120,7 @@ export const getUserById = asyncHandler(async (req, res) => {
 // @desc    Update user
 // @route   PUT /api/users/:id
 // @access  Private/Admin
-export const updateUser = asyncHandler(async (req, res) => {
+export const updateUser = ash(async (req, res) => {
   const user = await User.findById(req.params.id);
 
   if (user) {
